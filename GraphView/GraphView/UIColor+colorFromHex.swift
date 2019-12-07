@@ -33,13 +33,13 @@ extension UIColor {
         
         // Else create the color, store it in the cache and return.
         let scanner = Scanner(string: cleanedHexString)
-        
-        var value:UInt32 = 0
-        
+                
         // We have the hex value, grab the red, green, blue and alpha values.
         // Have to pass value by reference, scanner modifies this directly as the result of scanning the hex string. The return value is the success or fail.
-        if(scanner.scanHexInt32(&value)){
-            
+		//if(scanner.scanInt(&value)){
+
+		if let value = scanner.scanInt32(representation: .hexadecimal) {
+
             // intValue = 01010101 11110111 11101010    // binary
             // intValue = 55       F7       EA          // hexadecimal
             
